@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/homescreen/homescreen_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
+      home: const HomescreenView(),
     );
   }
 }
