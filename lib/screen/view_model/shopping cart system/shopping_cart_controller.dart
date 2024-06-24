@@ -1,3 +1,34 @@
+// shopping_cart_provider.dart
+import 'package:flutter/foundation.dart';
+
+// Provider untuk state management
+class ShoppingCartProvider with ChangeNotifier {
+  final ShoppingCartController _controller;
+
+  ShoppingCartProvider(List<Map<String, dynamic>> cartItems)
+      : _controller = ShoppingCartController(cartItems);
+
+  List<CartItem> get cartItems => _controller.cartItems;
+
+  double get totalPrice => _controller.totalPrice;
+
+  void incrementQuantity(int index) {
+    _controller.incrementQuantity(index);
+    notifyListeners();
+  }
+
+  void decrementQuantity(int index) {
+    _controller.decrementQuantity(index);
+    notifyListeners();
+  }
+
+  void removeItem(int index) {
+    _controller.removeItem(index);
+    notifyListeners();
+  }
+}
+
+// Model dan controller untuk shopping cart
 class CartItem {
   final String name;
   final double price;

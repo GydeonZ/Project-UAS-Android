@@ -1,5 +1,107 @@
+// shopping_cart.dart
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../view_model/shopping cart system/shopping_cart_controller.dart';
+
+class ShoppingCartScreen extends StatelessWidget {
+  const ShoppingCartScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Shopping Cart',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: const Color(0xFFEEEBED),
+      ),
+      backgroundColor: const Color(0xFFEEEBED),
+      body: Column(
+        children: [
+          Expanded(
+            child: Consumer<ShoppingCartProvider>(
+              builder: (context, cartProvider, child) {
+                return ListView.builder(
+                  itemCount: cartProvider.cartItems.length,
+                  itemBuilder: (context, index) {
+                    final item = cartProvider.cartItems[index];
+                    return CartItemWidget(
+                      key: Key(item.name),
+                      item: item,
+                      onIncrement: () => cartProvider.incrementQuantity(index),
+                      onDecrement: () => cartProvider.decrementQuantity(index),
+                      onRemove: () => cartProvider.removeItem(index),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: const BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: Colors.grey,
+                  width: 0.5,
+                ),
+              ),
+            ),
+            child: Consumer<ShoppingCartProvider>(
+              builder: (context, cartProvider, child) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total: ${cartProvider.totalPrice == 0 ? '-' : 'Rp ${cartProvider.totalPrice.toStringAsFixed(0)}'}',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Tambahkan fungsi checkout di sini
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4C3D53),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Ink(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Container(
+                          constraints:
+                              const BoxConstraints(minWidth: 88, minHeight: 36),
+                          alignment: Alignment.center,
+                          child: const Text(
+                            'Checkout',
+                            style: TextStyle(
+                              color: Color(0xFFEEEBED),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class CartItemWidget extends StatelessWidget {
   final CartItem item;
@@ -76,129 +178,6 @@ class CartItemWidget extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ShoppingCartScreen extends StatefulWidget {
-  const ShoppingCartScreen({Key? key}) : super(key: key);
-
-  @override
-  State<ShoppingCartScreen> createState() => _ShoppingCartScreenState();
-}
-
-class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
-  final ShoppingCartController _controller = ShoppingCartController([
-    // Inisialisasi dengan beberapa data sampel jika diperlukan
-  ]);
-
-  void _incrementQuantity(int index) {
-    setState(() {
-      _controller.incrementQuantity(index);
-    });
-  }
-
-  void _decrementQuantity(int index) {
-    setState(() {
-      _controller.decrementQuantity(index);
-    });
-  }
-
-  void _removeItem(int index) {
-    setState(() {
-      _controller.removeItem(index);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Shopping Cart',
-          style: TextStyle(
-            fontWeight: FontWeight.bold, // Membuat teks menjadi bold
-          ),
-        ),
-        backgroundColor: const Color(0xFFEEEBED),
-      ),
-      backgroundColor: const Color(0xFFEEEBED),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: _controller.cartItems.length,
-              itemBuilder: (context, index) {
-                final item = _controller.cartItems[index];
-                return CartItemWidget(
-                  key: Key(item.name),
-                  item: item,
-                  onIncrement: () => _incrementQuantity(index),
-                  onDecrement: () => _decrementQuantity(index),
-                  onRemove: () => _removeItem(index),
-                );
-              },
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: const BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: Colors.grey, // Warna garis
-                  width: 0.5, // Ketebalan garis
-                ),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Total: ${_controller.totalPrice == 0 ? '-' : 'Rp ${_controller.totalPrice.toStringAsFixed(0)}'}',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Tambahkan fungsi checkout di sini
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF4C3D53),
-                    tapTargetSize: MaterialTapTargetSize
-                        .shrinkWrap, // Mengurangi ukuran target saat ditekan
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          8), // Membuat sudut tombol melengkung
-                    ),
-                  ),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                          8), // Membuat sudut tombol melengkung di dalam area ink
-                    ),
-                    child: Container(
-                      constraints: const BoxConstraints(
-                          minWidth: 88,
-                          minHeight: 36), // Mengatur ukuran minimum area ink
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Checkout',
-                        style: TextStyle(
-                          color: Color(0xFFEEEBED),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
