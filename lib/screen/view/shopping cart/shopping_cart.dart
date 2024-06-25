@@ -8,6 +8,8 @@ class ShoppingCartScreen extends StatefulWidget {
 }
 
 class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
+  bool checkboxChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,8 +164,14 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 Row(
                   children: [
                     Checkbox(
-                      value: false,
-                      onChanged: (bool? value) {},
+                      value: checkboxChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          checkboxChecked = value ?? false;
+                        });
+                      },
+                      activeColor:
+                          Colors.green, // Mengubah warna checkbox menjadi hijau
                     ),
                     const Text(
                       'Semua',
