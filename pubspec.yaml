@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.0.3
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -56,6 +57,12 @@ flutter:
     - family: Helvetica
       fonts:
         - asset: assets/fonts/Helvetica.ttf
+  assets:
+    - assets/image/redmi-watch-black.jpg
+    - assets/image/redmi-watch-gray.jpg
+    - assets/image/pro-badge.png
+    - assets/image/left-arrow.png
+    - assets/image/bebas-ongkir.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
