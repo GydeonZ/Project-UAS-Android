@@ -61,7 +61,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       Text('Rumah • Nikky Alesandro',
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       Text(
-                        'Jl. Brigjend Katamso, Gg. Tetangga, No.4 (No 4), M...',
+                        'Jl. Brigjend Katamso, Gg. Tetangga, No.4',
                         overflow: TextOverflow.ellipsis,
                       ),
                     ],
@@ -78,15 +78,20 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 title: 'Xiaomi Redmi Watch 3 Active GRAY',
                 price: 457000,
                 protectionPrice: 13500,
+                storeName: 'Sc_digital', // Nama toko
+                ImageUrl: 'assets/image/pro-badge.png', // Gambar badge "pro"
               ),
+              const SizedBox(height: 10),
               const ProductItem(
                 imageUrl: 'assets/image/redmi-watch-black.jpg',
                 title: 'Xiaomi Redmi Watch 3 Active BLACK',
                 price: 457000,
                 protectionPrice: 13500,
+                storeName: 'Sc_digital', // Nama toko
+                ImageUrl: 'assets/image/pro-badge.png', // Gambar badge "pro"
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 5),
 
               // Bebas Ongkir Section
               Container(
@@ -215,6 +220,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 'Cek ringkasan belanjamu, yuk',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 10),
               const SummaryItem(
                 label: 'Total Harga (2 Barang)',
                 value: 'Rp914.000',
@@ -322,6 +328,8 @@ class ProductItem extends StatelessWidget {
   final String title;
   final int price;
   final int protectionPrice;
+  final String storeName; // Nama toko
+  final String ImageUrl; // Gambar badge "pro"
 
   const ProductItem({
     super.key,
@@ -329,16 +337,45 @@ class ProductItem extends StatelessWidget {
     required this.title,
     required this.price,
     required this.protectionPrice,
+    required this.storeName,
+    required this.ImageUrl,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Store Name Section
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Row(
+            children: [
+              Image.asset(
+                ImageUrl, // Menampilkan gambar badge "pro"
+                width: 20,
+                height: 20,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                storeName,
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+        // Product Details Section
         Row(
           children: [
-            Image.asset(imageUrl,
-                width: 70, height: 70), // Memperbesar gambar produk
+            Image.asset(
+              imageUrl,
+              width: 70,
+              height: 70,
+            ),
             const SizedBox(width: 16),
             Expanded(
               child: Column(
@@ -366,15 +403,14 @@ class ProductItem extends StatelessWidget {
                           style: const TextStyle(
                             color: Color.fromARGB(255, 148, 148, 148),
                             fontSize: 13,
+                            decoration: TextDecoration.underline,
                           ),
                           children: [
                             TextSpan(
                               text: '(Rp$protectionPrice)',
                               style: const TextStyle(
-                                color: Color.fromARGB(255, 148, 148, 148),
-                                fontSize: 13,
-                                decoration: TextDecoration.underline,
-                              ),
+                                  color: Color.fromARGB(255, 148, 148, 148),
+                                  fontSize: 13),
                             ),
                           ],
                         ),
