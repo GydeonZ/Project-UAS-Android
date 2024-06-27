@@ -23,8 +23,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
           children: [
             Text(
               'Pembayaran',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              style: TextStyle(
+                fontFamily: 'Helvetica',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ],
         ),
@@ -44,10 +47,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('GoPay Tabungan by Jago (Rp2)',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text('Oops, saldo kurang. Top-up Sekarang',
-                            overflow: TextOverflow.ellipsis),
+                        Text(
+                          'GoPay Tabungan by Jago (Rp2)',
+                          style: TextStyle(
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'Oops, saldo kurang. Top-up Sekarang',
+                          style: TextStyle(fontFamily: 'Helvetica'),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ],
                     ),
                   ),
@@ -72,10 +83,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('GoPay Coins',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text(
+                          'GoPay Coins',
+                          style: TextStyle(
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                         Text(
                           '1 Coins',
+                          style: TextStyle(fontFamily: 'Helvetica'),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
@@ -100,13 +117,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: [
                   const Text(
                     'Metode pembayaran',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
                   ),
                   TextButton(
                     onPressed: () {},
                     child: const Text(
                       'Lihat Semua',
                       style: TextStyle(
+                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.bold,
                         color: Colors.green,
                       ),
@@ -123,7 +145,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     const Expanded(
                       child: Text(
                         'Mandiri Virtual Account',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontFamily: 'Helvetica',
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Radio<String>(
@@ -147,7 +172,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     const Expanded(
                       child: Text(
                         'BCA Virtual Account',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontFamily: 'Helvetica',
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Radio<String>(
@@ -167,12 +195,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
               const SizedBox(height: 16),
               const Text(
                 'Promo Pembayaran',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(
+                  fontFamily: 'Helvetica',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
               const SizedBox(height: 10),
               Card(
                 color: Colors.white,
-                elevation: 3.0, // Menambahkan shadow
+                elevation: 3.0,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -184,13 +216,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           const SizedBox(width: 8),
                           const Text(
                             'GoPay Tabungan by Jago',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 8),
                       const Text(
                         '+ Cashback sampai 23.665 GoPay Coins (khusus bayar penuh pakai GoPay Tabungan)',
+                        style: TextStyle(fontFamily: 'Helvetica'),
                       ),
                     ],
                   ),
@@ -199,7 +235,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
               const SizedBox(height: 16),
               const Text(
                 'Ringkasan pembayaran',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(
+                  fontFamily: 'Helvetica',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
               const SizedBox(height: 16),
               const Row(
@@ -207,11 +247,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: [
                   Text(
                     'Total Belanja',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 16,
+                    ),
                   ),
                   Text(
                     'Rp956.900',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),
@@ -220,11 +266,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: [
                   Text(
                     'Biaya Layanan',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 16,
+                    ),
                   ),
                   Text(
                     'Rp1.000',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),
@@ -233,11 +285,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: [
                   Text(
                     'Pakai GoPay Tabungan',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 16,
+                    ),
                   ),
                   Text(
                     '-Rp2',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),
@@ -254,6 +312,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       child: Text(
                         '🎉  Yay, kamu dapat diskon Rp9.300 dari transaksi ini',
                         style: TextStyle(
+                          fontFamily: 'Helvetica',
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontWeight: FontWeight.bold,
                         ),
@@ -265,52 +324,57 @@ class _PaymentScreenState extends State<PaymentScreen> {
               const SizedBox(height: 8),
               const Divider(),
               const SizedBox(height: 10),
-              Row(children: [
-                const Text(
-                  'Total:',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  'Rp948.598',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const Spacer(),
-                ElevatedButton.icon(
-                  onPressed: () {
-                    //
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 50),
-                  ),
-                  icon: ColorFiltered(
-                    colorFilter: const ColorFilter.mode(
-                      Colors.white,
-                      BlendMode.srcIn,
-                    ),
-                    child: Image.asset('assets/image/guard.png',
-                        width: 15, height: 15),
-                  ),
-                  label: const Text(
-                    'Bayar',
+              Row(
+                children: [
+                  const Text(
+                    'Total:',
                     style: TextStyle(
+                      fontFamily: 'Helvetica',
                       fontSize: 16,
-                      color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              ])
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Rp948.598',
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const Spacer(),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      //
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 50),
+                    ),
+                    icon: ColorFiltered(
+                      colorFilter: const ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcIn,
+                      ),
+                      child: Image.asset('assets/image/guard.png',
+                          width: 15, height: 15),
+                    ),
+                    label: const Text(
+                      'Bayar',
+                      style: TextStyle(
+                        fontFamily: 'Helvetica',
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
