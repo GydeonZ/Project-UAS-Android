@@ -9,26 +9,22 @@ class ShoppingCartScreen extends StatefulWidget {
 }
 
 class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
-  bool checkboxChecked = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black),
         title: const Row(
           children: [
             Text(
               'Keranjang',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
           ],
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.favorite_border),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -154,14 +150,8 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 Row(
                   children: [
                     Checkbox(
-                      value: checkboxChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          checkboxChecked = value ?? false;
-                        });
-                      },
-                      activeColor:
-                          Colors.green, // Mengubah warna checkbox menjadi hijau
+                      value: false,
+                      onChanged: (bool? value) {},
                     ),
                     const Text(
                       'Semua',
@@ -188,8 +178,11 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     const SizedBox(width: 10),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const CheckoutScreen()));
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const CheckoutScreen(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
