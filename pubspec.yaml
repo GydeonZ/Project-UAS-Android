@@ -63,6 +63,14 @@ flutter:
     - assets/image/pro-badge.png
     - assets/image/left-arrow.png
     - assets/image/bebas-ongkir.png
+    - assets/image/bca.png
+    - assets/image/mandiri.png
+    - assets/image/proteksi.png
+    - assets/image/gopay-tabungan.png
+    - assets/image/gopay-coins.png
+    - assets/image/donation.png
+    - assets/image/location.png
+    - assets/image/guard.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
