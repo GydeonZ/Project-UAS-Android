@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/checkout/checkout.dart';
 
 class ShoppingCartScreen extends StatefulWidget {
   const ShoppingCartScreen({super.key});
@@ -14,20 +15,9 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: Image.asset(
-                'assets/image/left-arrow.png',
-                width: 24,
-                height: 24,
-              ),
-            ),
-            const SizedBox(width: 15),
-            const Text(
+            Text(
               'Keranjang',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
@@ -198,7 +188,8 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     const SizedBox(width: 10),
                     ElevatedButton(
                       onPressed: () {
-                        // Add your onPressed code here!
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const CheckoutScreen()));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
