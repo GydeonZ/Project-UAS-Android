@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class SignUpViewModel with ChangeNotifier {
-  final formKey = GlobalKey<FormState>();
+  final formKeySignUp = GlobalKey<FormState>();
   final TextEditingController daftar = TextEditingController();
   bool isPasswordVisible = false;
   bool heightContainer = false;

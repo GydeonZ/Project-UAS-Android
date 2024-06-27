@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/signin_dan_signup/sign_in.dart';
 // import 'package:projectuas/screen/view/signin_dan_signup/sign_in.dart';
 import 'package:projectuas/screen/view/signin_dan_signup/sign_up.dart';
 import 'package:projectuas/screen/view_model/view_model_signin.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: const SignUp(),
+        home: const SignIn(),
       ),
     );
   }

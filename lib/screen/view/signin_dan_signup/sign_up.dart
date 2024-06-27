@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:projectuas/screen/view/signin_dan_signup/sign_in.dart';
 import 'package:projectuas/screen/view/signin_dan_signup/text.dart';
 import 'package:projectuas/screen/view/widget/button.dart';
 import 'package:projectuas/screen/view/widget/textformfield.dart';
@@ -38,7 +39,9 @@ class _SignUpState extends State<SignUp> {
         leading: Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: const Icon(
                 Icons.arrow_back_rounded,
                 color: Colors.black,
@@ -59,11 +62,18 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: EdgeInsetsDirectional.only(end: size.width * .015),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SignIn(),
+                  ),
+                );
+              },
               child: const Text(
                 'Masuk',
                 style: TextStyle(
                   color: Color(0xFF00974A),
+                  fontFamily: 'Helvetica',
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
@@ -84,7 +94,7 @@ class _SignUpState extends State<SignUp> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Form(
-                key: viewModel.formKey,
+                key: viewModel.formKeySignUp,
                 child: customTextFormField(
                   textCapitalization: TextCapitalization.sentences,
                   controller: viewModel.daftar,
@@ -116,7 +126,8 @@ class _SignUpState extends State<SignUp> {
                         : CupertinoColors.inactiveGray,
                     onPressed: isEnabled
                         ? () {
-                            if (viewModel.formKey.currentState!.validate()) {
+                            if (viewModel.formKeySignUp.currentState!
+                                .validate()) {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => const DummyScreen(),
@@ -176,11 +187,8 @@ class _SignUpState extends State<SignUp> {
                   ),
                   children: [
                     const TextSpan(
-                      text: 'Dengan mendaftar di sini, kamu menyutujui ',
-                      style: TextStyle(
-                        color: Color(0xffbfbfbf)
-                      )
-                    ),
+                        text: 'Dengan mendaftar di sini, kamu menyutujui ',
+                        style: TextStyle(color: Color(0xffbfbfbf))),
                     TextSpan(
                       text: 'Syarat & Ketentuan',
                       style: const TextStyle(
@@ -192,11 +200,8 @@ class _SignUpState extends State<SignUp> {
                         },
                     ),
                     const TextSpan(
-                      text: ' serta ',
-                      style: TextStyle(
-                        color: Color(0xffbfbfbf)
-                      )
-                    ),
+                        text: ' serta ',
+                        style: TextStyle(color: Color(0xffbfbfbf))),
                     TextSpan(
                       text: 'Pemberitahuan Privasi',
                       style: const TextStyle(
@@ -205,11 +210,8 @@ class _SignUpState extends State<SignUp> {
                       recognizer: TapGestureRecognizer()..onTap = () {},
                     ),
                     const TextSpan(
-                      text: 'Tokopedia.',
-                      style: TextStyle(
-                        color: Color(0xffbfbfbf)
-                      )
-                    ),
+                        text: 'Tokopedia.',
+                        style: TextStyle(color: Color(0xffbfbfbf))),
                   ],
                 ),
               )

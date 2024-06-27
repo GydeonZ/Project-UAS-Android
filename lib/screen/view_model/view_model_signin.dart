@@ -1,43 +1,65 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class SignInViewModel with ChangeNotifier {
-  late GlobalKey<FormState> formKeySignin;
-  final TextEditingController email = TextEditingController();
-  final TextEditingController password = TextEditingController();
+  final formKeySignin = GlobalKey<FormState>();
+  final TextEditingController masuk = TextEditingController();
+  ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);
   bool isPasswordVisible = false;
   bool heightContainer = false;
 
+  SignInViewModel() {
+    masuk.addListener(_validateInput);
+  }
+
   String? validateEmail(String value) {
     if (value.isEmpty) {
-      heightContainer = true;
-      notifyListeners();
       return 'Email tidak boleh kosong';
     } else if (!EmailValidator.validate(value)) {
-      heightContainer = true;
-      notifyListeners();
       return 'Format email salah';
     }
-    heightContainer = false;
-    notifyListeners();
     return null;
   }
 
-  String? validatePassword(String value) {
-    heightContainer = true;
-    notifyListeners();
+  String? validatePhone(String value) {
     if (value.isEmpty) {
-      return 'Password tidak boleh kosong';
+      return 'Nomor tidak boleh kosong';
+    } else if (!value.startsWith('0')) {
+      return 'Nomor harus diawali 0';
+    } else if (value.length < 10) {
+      return 'Nomor minimal 10 digit';
+    } else if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+      return 'Nomor hanya boleh mengandung angka';
     }
-    heightContainer = false;
-    notifyListeners();
     return null;
+  }
+
+  String? validateEmailOrPhone(String value) {
+    if (value.isEmpty) {
+      return 'Email atau Nomor Ponsel tidak boleh kosong';
+    } else if (EmailValidator.validate(value)) {
+      return validateEmail(value);
+    } else if (RegExp(r'^[0-9]+$').hasMatch(value)) {
+      return validatePhone(value);
+    } else {
+      return 'Masukkan Email atau Nomor Ponsel yang valid';
+    }
   }
 
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     notifyListeners();
+  }
+
+  void _validateInput() {
+    isButtonEnabled.value = masuk.text.isNotEmpty;
+  }
+
+  void setUlangGender() {
+    // Reset gender selection logic if necessary
+  }
+
+  void setAgreePrivasi(bool value) {
+    // Update agree privacy logic if necessary
   }
 }
