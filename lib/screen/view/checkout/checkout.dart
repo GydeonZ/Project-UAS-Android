@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/paymentscreen/payment.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -17,20 +18,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: Row(
+        title: const Row(
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: Image.asset(
-                'assets/image/left-arrow.png',
-                width: 24,
-                height: 24,
-              ),
-            ),
-            const SizedBox(width: 15),
-            const Text(
+            Text(
               'Pengiriman',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
@@ -280,7 +270,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(vertical: 15),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const PaymentScreen(),
+                      ),
+                    );
+                  },
                   child: const Text(
                     'Pilih Pembayaran',
                     style: TextStyle(
