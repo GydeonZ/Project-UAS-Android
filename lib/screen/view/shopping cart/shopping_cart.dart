@@ -9,6 +9,8 @@ class ShoppingCartScreen extends StatefulWidget {
 }
 
 class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
+  bool checkboxChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +22,11 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
           children: [
             Text(
               'Keranjang',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              style: TextStyle(
+                fontFamily: 'Helvetica',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ],
         ),
@@ -53,6 +58,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                                 const Text(
                                   'Sc_digital',
                                   style: TextStyle(
+                                    fontFamily: 'Helvetica',
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
@@ -60,9 +66,8 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                               ],
                             ),
                             trailing: Image.asset(
-                              'assets/image/bebas-ongkir.png', // Ganti dengan path gambar PNG yang sesuai
-                              width:
-                                  80, // Sesuaikan ukuran gambar sesuai desain
+                              'assets/image/bebas-ongkir.png',
+                              width: 80,
                               height: 24,
                             ),
                           ),
@@ -136,6 +141,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                         child: Text(
                           'Yuk, pakai 2 promo biar hemat Rp64.840!',
                           style: TextStyle(
+                            fontFamily: 'Helvetica',
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),
@@ -150,17 +156,27 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 Row(
                   children: [
                     Checkbox(
-                      value: false,
-                      onChanged: (bool? value) {},
+                      value: checkboxChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          checkboxChecked = value ?? false;
+                        });
+                      },
+                      activeColor:
+                          Colors.green, // Mengubah warna checkbox menjadi hijau
                     ),
                     const Text(
                       'Semua',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(
+                        fontFamily: 'Helvetica',
+                        fontSize: 16,
+                      ),
                     ),
                     const Spacer(),
                     const Text(
                       'Total:',
                       style: TextStyle(
+                        fontFamily: 'Helvetica',
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -170,6 +186,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     const Text(
                       'Rp914.000',
                       style: TextStyle(
+                        fontFamily: 'Helvetica',
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -192,6 +209,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                       child: const Text(
                         'Beli (2)',
                         style: TextStyle(
+                          fontFamily: 'Helvetica',
                           fontSize: 16,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -245,8 +263,10 @@ class ShoppingCartItem extends StatelessWidget {
                           children: [
                             Text(
                               item.name,
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold),
+                              style: const TextStyle(
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             const SizedBox(height: 4),
                             Row(
@@ -254,6 +274,7 @@ class ShoppingCartItem extends StatelessWidget {
                                 Text(
                                   item.price,
                                   style: const TextStyle(
+                                    fontFamily: 'Helvetica',
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -263,6 +284,7 @@ class ShoppingCartItem extends StatelessWidget {
                                   Text(
                                     item.oldPrice!,
                                     style: const TextStyle(
+                                      fontFamily: 'Helvetica',
                                       decoration: TextDecoration.lineThrough,
                                       color: Colors.grey,
                                     ),
@@ -287,7 +309,10 @@ class ShoppingCartItem extends StatelessWidget {
                               ),
                               child: Text(
                                 '${item.discount}% OFF',
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(
+                                  fontFamily: 'Helvetica',
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           const SizedBox(height: 10),
