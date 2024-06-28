@@ -13,52 +13,54 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
         title: const Row(
           children: [
             Text(
               'Keranjang',
-              style: TextStyle(
-                fontFamily: 'Helvetica',
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite_border),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(screenWidth * 0.02),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Card(
-                      margin: const EdgeInsets.symmetric(vertical: 8.0),
+                      margin:
+                          EdgeInsets.symmetric(vertical: screenWidth * 0.02),
                       color: Colors.white,
                       child: Column(
                         children: [
                           ListTile(
                             title: Row(
                               children: [
-                                const SizedBox(width: 8),
+                                SizedBox(width: screenWidth * 0.02),
                                 Image.asset(
                                   'assets/image/pro-badge.png',
-                                  width: 24,
-                                  height: 24,
+                                  width: screenWidth * 0.06,
+                                  height: screenWidth * 0.06,
                                 ),
-                                const SizedBox(width: 5),
+                                SizedBox(width: screenWidth * 0.02),
                                 const Text(
                                   'Sc_digital',
                                   style: TextStyle(
-                                    fontFamily: 'Helvetica',
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
@@ -67,8 +69,8 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                             ),
                             trailing: Image.asset(
                               'assets/image/bebas-ongkir.png',
-                              width: 80,
-                              height: 24,
+                              width: screenWidth * 0.2,
+                              height: screenHeight * 0.03,
                             ),
                           ),
                           Divider(height: 1, color: Colors.grey.shade300),
@@ -102,11 +104,11 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.01),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: screenHeight * 0.01),
                   ],
                 ),
               ),
@@ -122,13 +124,13 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 ),
               ),
             ),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+            padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.04, vertical: screenHeight * 0.02),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(screenWidth * 0.02),
                   decoration: BoxDecoration(
                     color: Colors.green.shade50,
                     borderRadius: BorderRadius.circular(8.0),
@@ -136,12 +138,11 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                   child: Row(
                     children: [
                       const Icon(Icons.local_offer, color: Colors.orange),
-                      const SizedBox(width: 10),
+                      SizedBox(width: screenWidth * 0.02),
                       const Expanded(
                         child: Text(
                           'Yuk, pakai 2 promo biar hemat Rp64.840!',
                           style: TextStyle(
-                            fontFamily: 'Helvetica',
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),
@@ -152,7 +153,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: screenHeight * 0.01),
                 Row(
                   children: [
                     Checkbox(
@@ -162,54 +163,46 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                           checkboxChecked = value ?? false;
                         });
                       },
-                      activeColor:
-                          Colors.green, // Mengubah warna checkbox menjadi hijau
+                      activeColor: Colors.green,
                     ),
                     const Text(
                       'Semua',
-                      style: TextStyle(
-                        fontFamily: 'Helvetica',
-                        fontSize: 16,
-                      ),
+                      style: TextStyle(fontSize: 16),
                     ),
                     const Spacer(),
                     const Text(
                       'Total:',
                       style: TextStyle(
-                        fontFamily: 'Helvetica',
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: screenWidth * 0.02),
                     const Text(
                       'Rp914.000',
                       style: TextStyle(
-                        fontFamily: 'Helvetica',
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: screenWidth * 0.02),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const CheckoutScreen(),
-                          ),
-                        );
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const CheckoutScreen(),
+                        ));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 20),
+                        padding: EdgeInsets.symmetric(
+                            vertical: screenHeight * 0.02,
+                            horizontal: screenWidth * 0.05),
                       ),
                       child: const Text(
                         'Beli (2)',
                         style: TextStyle(
-                          fontFamily: 'Helvetica',
                           fontSize: 16,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -218,7 +211,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: screenHeight * 0.01),
               ],
             ),
           ),
@@ -237,13 +230,16 @@ class ShoppingCartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       children: items
           .map((item) => Card(
-                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                margin: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
                 color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(screenWidth * 0.02),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -251,78 +247,71 @@ class ShoppingCartItem extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
                           item.imageUrl,
-                          width: 60,
-                          height: 60,
+                          width: screenWidth * 0.15,
+                          height: screenWidth * 0.15,
                           fit: BoxFit.cover,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: screenWidth * 0.02),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               item.name,
-                              style: const TextStyle(
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            const SizedBox(height: 4),
+                            SizedBox(height: screenHeight * 0.01),
                             Row(
                               children: [
                                 Text(
                                   item.price,
                                   style: const TextStyle(
-                                    fontFamily: 'Helvetica',
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                const SizedBox(width: 8),
+                                SizedBox(width: screenWidth * 0.02),
                                 if (item.oldPrice != null)
                                   Text(
                                     item.oldPrice!,
                                     style: const TextStyle(
-                                      fontFamily: 'Helvetica',
                                       decoration: TextDecoration.lineThrough,
                                       color: Colors.grey,
                                     ),
                                   ),
                               ],
                             ),
-                            const SizedBox(height: 4),
+                            SizedBox(height: screenHeight * 0.01),
                             if (item.color != null)
                               Text('Color: ${item.color}'),
                           ],
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: screenWidth * 0.02),
                       Column(
                         children: [
                           if (item.discount != null)
                             Container(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: EdgeInsets.all(screenWidth * 0.01),
                               decoration: BoxDecoration(
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(4.0),
                               ),
                               child: Text(
                                 '${item.discount}% OFF',
-                                style: const TextStyle(
-                                  fontFamily: 'Helvetica',
-                                  color: Colors.white,
-                                ),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.01),
                           Row(
                             children: [
                               IconButton(
                                 icon: const Icon(Icons.remove),
                                 onPressed: () {},
-                                iconSize: 20,
-                                splashRadius: 20,
+                                iconSize: screenWidth * 0.05,
+                                splashRadius: screenWidth * 0.05,
                                 padding: const EdgeInsets.all(0),
                                 constraints: const BoxConstraints(),
                                 color: Colors.grey,
@@ -331,8 +320,8 @@ class ShoppingCartItem extends StatelessWidget {
                               IconButton(
                                 icon: const Icon(Icons.add),
                                 onPressed: () {},
-                                iconSize: 20,
-                                splashRadius: 20,
+                                iconSize: screenWidth * 0.05,
+                                splashRadius: screenWidth * 0.05,
                                 padding: const EdgeInsets.all(0),
                                 constraints: const BoxConstraints(),
                                 color: Colors.grey,
