@@ -14,6 +14,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -34,15 +37,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(screenWidth * 0.04),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
                   Image.asset('assets/image/gopay-tabungan.png',
-                      width: 40, height: 40),
-                  const SizedBox(width: 8),
+                      width: screenWidth * 0.1, height: screenWidth * 0.1),
+                  SizedBox(width: screenWidth * 0.02),
                   const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,12 +76,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: screenWidth * 0.04),
               Row(
                 children: [
                   Image.asset('assets/image/gopay-coins.png',
-                      width: 40, height: 40),
-                  const SizedBox(width: 8),
+                      width: screenWidth * 0.1, height: screenWidth * 0.1),
+                  SizedBox(width: screenWidth * 0.02),
                   const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,9 +112,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: screenWidth * 0.02),
               const Divider(),
-              const SizedBox(height: 8),
+              SizedBox(height: screenWidth * 0.02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -140,8 +143,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 title: Row(
                   children: [
                     Image.asset('assets/image/mandiri.png',
-                        width: 50, height: 50),
-                    const SizedBox(width: 15),
+                        width: screenWidth * 0.12, height: screenWidth * 0.12),
+                    SizedBox(width: screenWidth * 0.04),
                     const Expanded(
                       child: Text(
                         'Mandiri Virtual Account',
@@ -167,8 +170,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ListTile(
                 title: Row(
                   children: [
-                    Image.asset('assets/image/bca.png', width: 50, height: 50),
-                    const SizedBox(width: 15),
+                    Image.asset('assets/image/bca.png',
+                        width: screenWidth * 0.12, height: screenWidth * 0.12),
+                    SizedBox(width: screenWidth * 0.04),
                     const Expanded(
                       child: Text(
                         'BCA Virtual Account',
@@ -192,7 +196,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
               ),
               const Divider(),
-              const SizedBox(height: 16),
+              SizedBox(height: screenWidth * 0.04),
               const Text(
                 'Promo Pembayaran',
                 style: TextStyle(
@@ -201,19 +205,20 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   fontSize: 18,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: screenWidth * 0.02),
               Card(
                 color: Colors.white,
                 elevation: 3.0,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(screenWidth * 0.02),
                   child: Column(
                     children: [
                       Row(
                         children: [
                           Image.asset('assets/image/gopay-tabungan.png',
-                              width: 24, height: 24),
-                          const SizedBox(width: 8),
+                              width: screenWidth * 0.06,
+                              height: screenWidth * 0.06),
+                          SizedBox(width: screenWidth * 0.02),
                           const Text(
                             'GoPay Tabungan by Jago',
                             style: TextStyle(
@@ -223,7 +228,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: screenWidth * 0.02),
                       const Text(
                         '+ Cashback sampai 23.665 GoPay Coins (khusus bayar penuh pakai GoPay Tabungan)',
                         style: TextStyle(fontFamily: 'Helvetica'),
@@ -232,7 +237,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: screenWidth * 0.04),
               const Text(
                 'Ringkasan pembayaran',
                 style: TextStyle(
@@ -241,7 +246,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   fontSize: 18,
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: screenWidth * 0.04),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -299,9 +304,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: screenWidth * 0.05),
               Container(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(screenWidth * 0.02),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 197, 238, 201),
                   borderRadius: BorderRadius.circular(8.0),
@@ -321,9 +326,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: screenWidth * 0.02),
               const Divider(),
-              const SizedBox(height: 10),
+              SizedBox(height: screenWidth * 0.02),
               Row(
                 children: [
                   const Text(
@@ -335,7 +340,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: screenWidth * 0.02),
                   const Text(
                     'Rp948.598',
                     style: TextStyle(
@@ -352,8 +357,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 50),
+                      padding: EdgeInsets.symmetric(
+                          vertical: screenWidth * 0.025,
+                          horizontal: screenWidth * 0.1),
                     ),
                     icon: ColorFiltered(
                       colorFilter: const ColorFilter.mode(
@@ -361,7 +367,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         BlendMode.srcIn,
                       ),
                       child: Image.asset('assets/image/guard.png',
-                          width: 15, height: 15),
+                          width: screenWidth * 0.04,
+                          height: screenWidth * 0.04),
                     ),
                     label: const Text(
                       'Bayar',
