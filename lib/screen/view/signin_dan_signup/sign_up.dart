@@ -1,8 +1,6 @@
-// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:projectuas/screen/view/signin_dan_signup/sign_in.dart';
 import 'package:projectuas/screen/view/signin_dan_signup/text.dart';
 import 'package:projectuas/screen/view/widget/button.dart';
