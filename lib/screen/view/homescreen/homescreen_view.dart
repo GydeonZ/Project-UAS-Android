@@ -123,7 +123,7 @@ class _HomescreenViewState extends State<HomescreenView> {
       ),
       bottomNavigationBar: Container(
         height: 60,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(

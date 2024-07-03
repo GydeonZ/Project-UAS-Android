@@ -64,7 +64,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                               children: [
                                 SizedBox(width: screenWidth * 0.02),
                                 Image.asset(
-                                  'assets//pro-badge.png',
+                                  'assets/pro-badge.png',
                                   width: screenWidth * 0.06,
                                   height: screenWidth * 0.06,
                                 ),
@@ -79,7 +79,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                               ],
                             ),
                             trailing: Image.asset(
-                              'assets//bebas-ongkir.png',
+                              'assets/bebas-ongkir.png',
                               width: screenWidth * 0.2,
                               height: screenHeight * 0.03,
                             ),
@@ -99,7 +99,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                                     oldPrice: 'Rp499.000',
                                     color: 'GRAY',
                                     imageUrl:
-                                        'assets//redmi-watch-gray.jpg',
+                                        'assets/redmi-watch-gray.jpg',
                                     discount: 8,
                                   ),
                                   ShoppingItem(
@@ -108,7 +108,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                                     oldPrice: 'Rp499.000',
                                     color: 'BLACK',
                                     imageUrl:
-                                        'assets//redmi-watch-black.jpg',
+                                        'assets/redmi-watch-black.jpg',
                                     discount: 8,
                                   ),
                                 ],
