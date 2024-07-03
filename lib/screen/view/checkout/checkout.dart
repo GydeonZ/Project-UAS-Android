@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/paymentscreen/payment.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -12,28 +13,22 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: Row(
+        title: const Row(
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: Image.asset(
-                'assets/image/left-arrow.png',
-                width: 24,
-                height: 24,
-              ),
-            ),
-            const SizedBox(width: 15),
-            const Text(
+            Text(
               'Pengiriman',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              style: TextStyle(
+                fontFamily: 'Helvetica',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ],
         ),
@@ -44,25 +39,39 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Address Title
-              const Text('Alamat pengiriman kamu',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+              const Text(
+                'Alamat pengiriman kamu',
+                style: TextStyle(
+                  fontFamily: 'Helvetica',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 8),
-
-              // Address Section
               Row(
                 children: [
-                  Image.asset('assets/image/location.png',
-                      width: 24, height: 24, color: Colors.green),
+                  Image.asset(
+                    'assets/image/location.png',
+                    width: screenWidth * 0.06,
+                    height: screenWidth * 0.06,
+                    color: Colors.green,
+                  ),
                   const SizedBox(width: 8),
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Rumah • Nikky Alesandro',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text(
+                        'Rumah • Nikky Alesandro',
+                        style: TextStyle(
+                          fontFamily: 'Helvetica',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       Text(
                         'Jl. Brigjend Katamso, Gg. Tetangga, No.4',
                         overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontFamily: 'Helvetica',
+                        ),
                       ),
                     ],
                   ),
@@ -71,29 +80,19 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),
-
-              // Product Section
               const ProductItem(
                 imageUrl: 'assets/image/redmi-watch-gray.jpg',
                 title: 'Xiaomi Redmi Watch 3 Active GRAY',
                 price: 457000,
                 protectionPrice: 13500,
-                storeName: 'Sc_digital', // Nama toko
-                ImageUrl: 'assets/image/pro-badge.png', // Gambar badge "pro"
               ),
-              const SizedBox(height: 10),
               const ProductItem(
                 imageUrl: 'assets/image/redmi-watch-black.jpg',
                 title: 'Xiaomi Redmi Watch 3 Active BLACK',
                 price: 457000,
                 protectionPrice: 13500,
-                storeName: 'Sc_digital', // Nama toko
-                ImageUrl: 'assets/image/pro-badge.png', // Gambar badge "pro"
               ),
-
-              const SizedBox(height: 5),
-
-              // Bebas Ongkir Section
+              const SizedBox(height: 20),
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
@@ -109,8 +108,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       children: [
                         Image.asset(
                           'assets/image/bebas-ongkir.png',
-                          width: 80,
-                          height: 50,
+                          width: screenWidth * 0.2,
+                          height: screenWidth * 0.125,
                         ),
                         const SizedBox(width: 12),
                         const Column(
@@ -119,6 +118,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             Text(
                               'Bebas Ongkir',
                               style: TextStyle(
+                                fontFamily: 'Helvetica',
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -126,6 +126,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             Text(
                               '(Rp0)',
                               style: TextStyle(
+                                fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -137,6 +138,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     const Text(
                       'Estimasi tiba 27 - 30 Jun',
                       style: TextStyle(
+                        fontFamily: 'Helvetica',
                         color: Colors.grey,
                         fontSize: 13,
                       ),
@@ -146,8 +148,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       children: [
                         Image.asset(
                           'assets/image/proteksi.png',
-                          width: 20,
-                          height: 20,
+                          width: screenWidth * 0.05,
+                          height: screenWidth * 0.05,
                         ),
                         const SizedBox(width: 4),
                         Expanded(
@@ -155,6 +157,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             text: const TextSpan(
                               text: 'Dilindungi Asuransi Pengiriman (Rp5.600)',
                               style: TextStyle(
+                                fontFamily: 'Helvetica',
                                 color: Color.fromARGB(255, 148, 148, 148),
                                 fontSize: 13,
                               ),
@@ -166,10 +169,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 20),
-
-              // Ongkir Section
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
@@ -184,6 +184,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       child: Text(
                         'Yay, kamu hemat Rp8.300 di transaksi ini',
                         style: TextStyle(
+                          fontFamily: 'Helvetica',
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontWeight: FontWeight.bold,
                         ),
@@ -201,10 +202,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 children: [
                   const Text(
                     'Yuk, pakai 2 promo biar hemat ',
+                    style: TextStyle(fontFamily: 'Helvetica'),
                   ),
                   const Text(
                     'Rp64.840!',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const Spacer(),
                   Icon(Icons.arrow_forward_ios,
@@ -214,13 +219,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),
-
-              // Summary Section
               const Text(
                 'Cek ringkasan belanjamu, yuk',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontFamily: 'Helvetica',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              const SizedBox(height: 10),
               const SummaryItem(
                 label: 'Total Harga (2 Barang)',
                 value: 'Rp914.000',
@@ -242,19 +247,20 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 value: 'Rp1.000',
               ),
               const Divider(),
-              const SummaryItem(label: 'Total Belanja', value: 'Rp947.600'),
-
+              const SummaryItem(
+                label: 'Total Belanja',
+                value: 'Rp947.600',
+              ),
               const SizedBox(height: 20),
-
-              // Donation Section
               Row(
                 children: [
                   Image.asset('assets/image/donation.png',
-                      width: 40, height: 40),
+                      width: screenWidth * 0.1, height: screenWidth * 0.1),
                   const SizedBox(width: 15),
                   const Expanded(
                     child: Text(
                       'Donasi Rp 5.000 untuk BUKU BACAAN PERLUAS WAWASAN (Rp5.000)',
+                      style: TextStyle(fontFamily: 'Helvetica'),
                     ),
                   ),
                   Checkbox(
@@ -264,15 +270,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         donationChecked = value ?? false;
                       });
                     },
-                    activeColor:
-                        Colors.green, // Mengubah warna checkbox menjadi hijau
+                    activeColor: Colors.green,
                   ),
                 ],
               ),
-
               const SizedBox(height: 20),
-
-              // Payment Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -280,31 +282,38 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(vertical: 15),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const PaymentScreen(),
+                      ),
+                    );
+                  },
                   child: const Text(
                     'Pilih Pembayaran',
                     style: TextStyle(
+                      fontFamily: 'Helvetica',
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
-
               const SizedBox(height: 15),
-
-              // Terms and Conditions
               const Center(
                 child: Text.rich(
                   TextSpan(
                     text: 'Dengan melanjutkan, kamu menyetujui ',
                     style: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 102, 102, 102)),
+                      fontFamily: 'Helvetica',
+                      fontSize: 12,
+                      color: Color.fromARGB(255, 102, 102, 102),
+                    ),
                     children: [
                       TextSpan(
                         text: 'S&K Asuransi & Proteksi.',
                         style: TextStyle(
+                          fontFamily: 'Helvetica',
                           decoration: TextDecoration.underline,
                           fontSize: 12,
                           color: Color.fromARGB(255, 102, 102, 102),
@@ -328,8 +337,6 @@ class ProductItem extends StatelessWidget {
   final String title;
   final int price;
   final int protectionPrice;
-  final String storeName; // Nama toko
-  final String ImageUrl; // Gambar badge "pro"
 
   const ProductItem({
     super.key,
@@ -337,45 +344,18 @@ class ProductItem extends StatelessWidget {
     required this.title,
     required this.price,
     required this.protectionPrice,
-    required this.storeName,
-    required this.ImageUrl,
   });
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Store Name Section
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: Row(
-            children: [
-              Image.asset(
-                ImageUrl, // Menampilkan gambar badge "pro"
-                width: 20,
-                height: 20,
-              ),
-              const SizedBox(width: 8),
-              Text(
-                storeName,
-                style: const TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-        // Product Details Section
         Row(
           children: [
-            Image.asset(
-              imageUrl,
-              width: 70,
-              height: 70,
-            ),
+            Image.asset(imageUrl,
+                width: screenWidth * 0.175, height: screenWidth * 0.175),
             const SizedBox(width: 16),
             Expanded(
               child: Column(
@@ -383,34 +363,43 @@ class ProductItem extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(fontSize: 14),
+                    style: const TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontSize: 14,
+                    ),
                   ),
                   Text(
                     'Rp$price',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Row(
                     children: [
                       Image.asset(
                         'assets/image/proteksi.png',
-                        width: 20,
-                        height: 20,
+                        width: screenWidth * 0.05,
+                        height: screenWidth * 0.05,
                       ),
                       const SizedBox(width: 4),
                       RichText(
                         text: TextSpan(
                           text: 'Proteksi Rusak Total 3 bulan ',
                           style: const TextStyle(
+                            fontFamily: 'Helvetica',
                             color: Color.fromARGB(255, 148, 148, 148),
                             fontSize: 13,
-                            decoration: TextDecoration.underline,
                           ),
                           children: [
                             TextSpan(
                               text: '(Rp$protectionPrice)',
                               style: const TextStyle(
-                                  color: Color.fromARGB(255, 148, 148, 148),
-                                  fontSize: 13),
+                                fontFamily: 'Helvetica',
+                                color: Color.fromARGB(255, 148, 148, 148),
+                                fontSize: 13,
+                                decoration: TextDecoration.underline,
+                              ),
                             ),
                           ],
                         ),
@@ -441,8 +430,14 @@ class SummaryItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label),
-          Text(value),
+          Text(
+            label,
+            style: const TextStyle(fontFamily: 'Helvetica'),
+          ),
+          Text(
+            value,
+            style: const TextStyle(fontFamily: 'Helvetica'),
+          ),
         ],
       ),
     );
