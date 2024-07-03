@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectuas/screen/view/checkout/checkout.dart';
+import 'package:projectuas/screen/view/wishlist/wishlist.dart';
 
 class ShoppingCartScreen extends StatefulWidget {
   const ShoppingCartScreen({super.key});
@@ -26,10 +27,20 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             ),
           ],
         ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.favorite_border),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const WishlistScreen(),
+              ));
+            },
           ),
         ],
       ),
