@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/inbox/inbox.dart';
+import 'package:projectuas/screen/view/shopping%20cart/shopping_cart.dart';
 
 class MailAndBasketWidget extends StatefulWidget {
   const MailAndBasketWidget({super.key});
@@ -18,10 +20,19 @@ class _MailAndBasketWidgetState extends State<MailAndBasketWidget> {
             SizedBox(
               width: size.width * 0.1,
               height: size.width * 0.1,
-              child: Icon(
-                Icons.mail_outline,
-                size: size.width * 0.07,
-                color: Colors.grey,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const InboxScreen(),
+                    ),
+                  );
+                },
+                child: Icon(
+                  Icons.mail_outline,
+                  size: size.width * 0.07,
+                  color: Colors.grey,
+                ),
               ),
             ),
             Positioned(
@@ -55,14 +66,21 @@ class _MailAndBasketWidgetState extends State<MailAndBasketWidget> {
         Stack(
           children: [
             SizedBox(
-              width: size.width * 0.1,
-              height: size.width * 0.1,
-              child: Icon(
-                Icons.shopping_cart_outlined,
-                size: size.width * 0.07,
-                color: Colors.grey,
-              ),
-            ),
+                width: size.width * 0.1,
+                height: size.width * 0.1,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ShoppingCartScreen(),
+                      ),
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/cart.png',
+                    color: Colors.grey,
+                  ),
+                )),
             Positioned(
               right: 0,
               top: 0,

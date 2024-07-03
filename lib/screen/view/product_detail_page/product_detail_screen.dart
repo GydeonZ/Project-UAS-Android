@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/checkout/checkout.dart';
+import 'package:projectuas/screen/view/shopping%20cart/shopping_cart.dart';
 import 'package:projectuas/screen/view/widget/product_detail_page/custom_appbar_product.dart';
 import 'package:projectuas/screen/view/widget/product_detail_page/product_description_widget.dart';
 import 'package:projectuas/screen/view/widget/product_detail_page/product_image.dart';
@@ -71,41 +73,59 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   color: Colors.black,
                   size: size.width * 0.05,
                 )),
-            Container(
-              width: size.width * 0.4,
-              height: size.height * 0.045,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(
-                  color: Color(0xff00aa5b),
-                  width: 1,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CheckoutScreen(),
+                  ),
+                );
+              },
+              child: Container(
+                width: size.width * 0.4,
+                height: size.height * 0.045,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: const Color(0xff00aa5b),
+                    width: 1,
+                  ),
                 ),
-              ),
-              child: const Center(
-                child: Text(
-                  'Beli Sekarang',
-                  style: TextStyle(
-                    color: Color(0xff00aa5b),
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Helvetica',
+                child: const Center(
+                  child: Text(
+                    'Beli Sekarang',
+                    style: TextStyle(
+                      color: Color(0xff00aa5b),
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Helvetica',
+                    ),
                   ),
                 ),
               ),
             ),
-            Container(
-              width: size.width * 0.4,
-              height: size.height * 0.045,
-              decoration: BoxDecoration(
-                color: const Color(0xff009345),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: const Center(
-                child: Text(
-                  '+ Keranjang',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Helvetica',
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ShoppingCartScreen(),
+                  ),
+                );
+              },
+              child: Container(
+                width: size.width * 0.4,
+                height: size.height * 0.045,
+                decoration: BoxDecoration(
+                  color: const Color(0xff009345),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: const Center(
+                  child: Text(
+                    '+ Keranjang',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Helvetica',
+                    ),
                   ),
                 ),
               ),

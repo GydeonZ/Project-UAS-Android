@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:projectuas/screen/view/shopping%20cart/shopping_cart.dart';
 
 class DetailProductLeadingAppBar extends StatefulWidget {
   const DetailProductLeadingAppBar({super.key});
@@ -35,7 +35,13 @@ class _DetailProductLeadingAppBarState
               width: size.width * 0.1,
               height: size.width * 0.1,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ShoppingCartScreen(),
+                    ),
+                  );
+                },
                 child: Image.asset(
                   'assets/cart.png',
                   scale: size.width * 0.2 / 100,
