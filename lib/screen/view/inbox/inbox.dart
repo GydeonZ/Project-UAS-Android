@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectuas/screen/view/chat_screen/chat_screen_view.dart';
 
 class InboxScreen extends StatefulWidget {
   const InboxScreen({super.key});
@@ -94,13 +95,22 @@ class _InboxScreenState extends State<InboxScreen> {
               width: size.width * 0.06, // Responsive icon size
               height: size.width * 0.06,
             ),
-            title: Text(
-              'Chat Penjual',
-              style: TextStyle(
-                fontFamily: 'Helvetica',
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                fontSize: size.width * 0.045, // Responsive text size
+            title: GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ChatScreenView(),
+                  ),
+                );
+              },
+              child: Text(
+                'Chat Penjual',
+                style: TextStyle(
+                  fontFamily: 'Helvetica',
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: size.width * 0.045, // Responsive text size
+                ),
               ),
             ),
             trailing: Container(

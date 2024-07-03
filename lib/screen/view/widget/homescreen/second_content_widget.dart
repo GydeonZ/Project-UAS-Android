@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectuas/model/first_heading_model.dart';
+import 'package:projectuas/screen/view/product_detail_page/product_detail_screen.dart';
 
 class SecondContentWidget extends StatelessWidget {
   const SecondContentWidget({super.key});
@@ -31,8 +32,14 @@ class SecondContentWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: firstHeadingModel.productImage.length,
                 itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {},
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ProductDetailScreen(),
+                        ),
+                      );
+                    },
                     child: Container(
                       margin: EdgeInsets.only(right: size.width * 0.04),
                       height: size.height * 0.2,
