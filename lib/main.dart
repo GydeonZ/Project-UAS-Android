@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectuas/screen/view/product_detail_page/product_detail_screen.dart';
+import 'package:projectuas/screen/view/homescreen/homescreen_view.dart';
 import 'package:projectuas/screen/view_model/view_model_countdown.dart';
 import 'package:projectuas/screen/view_model/view_model_homescreen.dart';
 import 'package:projectuas/screen/view_model/view_model_signin.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: const ProductDetailScreen(),
+        home: const HomescreenView(),
       ),
     );
   }

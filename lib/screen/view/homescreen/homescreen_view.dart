@@ -17,11 +17,19 @@ class HomescreenView extends StatefulWidget {
 
 class _HomescreenViewState extends State<HomescreenView> {
   late HomeScreenProvider homeScreenProvider;
+  int _selectedIndex = 0;
+
   @override
   void initState() {
     super.initState();
     homeScreenProvider =
         Provider.of<HomeScreenProvider>(context, listen: false);
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
@@ -112,6 +120,46 @@ class _HomescreenViewState extends State<HomescreenView> {
             const HomeListViewBuilder(),
           ],
         ),
+      ),
+      bottomNavigationBar: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              offset: Offset(0, -1),
+              blurRadius: 6,
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildNavItem(Icons.thumb_up_alt_rounded, 'Buat Kamu', 0),
+            _buildNavItem(Icons.ondemand_video_rounded, 'Feed', 1),
+            _buildNavItem(Icons.verified_user_outlined, 'Official Store', 2),
+            _buildNavItem(Icons.receipt_long_outlined, 'Transaksi', 3),
+            _buildNavItem(Icons.person_outline, 'Akun', 4),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(IconData icon, String label, int index) {
+    Color color = _selectedIndex == index ? Colors.black : Colors.grey;
+    return GestureDetector(
+      onTap: () => _onItemTapped(index),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: color),
+          Text(
+            label,
+            style: TextStyle(color: color, fontSize: 12),
+          ),
+        ],
       ),
     );
   }
