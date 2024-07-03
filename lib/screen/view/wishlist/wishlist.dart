@@ -29,7 +29,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
         ),
         actions: [
           IconButton(
-            icon: Image.asset('assets/image/shopping-cart.png',
+            icon: Image.asset('assets//shopping-cart.png',
                 color: Colors.white),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -38,7 +38,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
             },
           ),
           IconButton(
-            icon: Image.asset('assets/image/menu.png', color: Colors.white),
+            icon: Image.asset('assets//menu.png', color: Colors.white),
             onPressed: () {},
           ),
         ],
@@ -104,7 +104,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                                         decoration: BoxDecoration(
                                           image: const DecorationImage(
                                             image: AssetImage(
-                                                'assets/image/item1.jpg'),
+                                                'assets//item1.jpg'),
                                             fit: BoxFit.cover,
                                           ),
                                           border:
@@ -123,7 +123,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                                         decoration: BoxDecoration(
                                           image: const DecorationImage(
                                             image: AssetImage(
-                                                'assets/image/item2.jpg'),
+                                                'assets//item2.jpg'),
                                             fit: BoxFit.cover,
                                           ),
                                           border:
@@ -148,7 +148,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                                         decoration: BoxDecoration(
                                           image: const DecorationImage(
                                             image: AssetImage(
-                                                'assets/image/item3.jpg'),
+                                                'assets//item3.jpg'),
                                             fit: BoxFit.cover,
                                           ),
                                           border:
@@ -167,7 +167,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                                         decoration: BoxDecoration(
                                           image: const DecorationImage(
                                             image: AssetImage(
-                                                'assets/image/item4.jpg'),
+                                                'assets//item4.jpg'),
                                             fit: BoxFit.cover,
                                           ),
                                           border:

@@ -50,7 +50,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Row(
                 children: [
                   Image.asset(
-                    'assets/image/location.png',
+                    'assets//location.png',
                     width: screenWidth * 0.06,
                     height: screenWidth * 0.06,
                     color: Colors.green,
@@ -81,13 +81,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const Divider(),
               const SizedBox(height: 10),
               const ProductItem(
-                imageUrl: 'assets/image/redmi-watch-gray.jpg',
+                imageUrl: 'assets//redmi-watch-gray.jpg',
                 title: 'Xiaomi Redmi Watch 3 Active GRAY',
                 price: 457000,
                 protectionPrice: 13500,
               ),
               const ProductItem(
-                imageUrl: 'assets/image/redmi-watch-black.jpg',
+                imageUrl: 'assets//redmi-watch-black.jpg',
                 title: 'Xiaomi Redmi Watch 3 Active BLACK',
                 price: 457000,
                 protectionPrice: 13500,
@@ -107,7 +107,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
-                          'assets/image/bebas-ongkir.png',
+                          'assets//bebas-ongkir.png',
                           width: screenWidth * 0.2,
                           height: screenWidth * 0.125,
                         ),
@@ -147,7 +147,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     Row(
                       children: [
                         Image.asset(
-                          'assets/image/proteksi.png',
+                          'assets//proteksi.png',
                           width: screenWidth * 0.05,
                           height: screenWidth * 0.05,
                         ),
@@ -254,7 +254,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const SizedBox(height: 20),
               Row(
                 children: [
-                  Image.asset('assets/image/donation.png',
+                  Image.asset('assets//donation.png',
                       width: screenWidth * 0.1, height: screenWidth * 0.1),
                   const SizedBox(width: 15),
                   const Expanded(
@@ -378,7 +378,7 @@ class ProductItem extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset(
-                        'assets/image/proteksi.png',
+                        'assets//proteksi.png',
                         width: screenWidth * 0.05,
                         height: screenWidth * 0.05,
                       ),

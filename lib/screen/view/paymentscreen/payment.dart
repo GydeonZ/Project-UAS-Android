@@ -15,8 +15,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -43,7 +41,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             children: [
               Row(
                 children: [
-                  Image.asset('assets/image/gopay-tabungan.png',
+                  Image.asset('assets//gopay-tabungan.png',
                       width: screenWidth * 0.1, height: screenWidth * 0.1),
                   SizedBox(width: screenWidth * 0.02),
                   const Expanded(
@@ -79,7 +77,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               SizedBox(height: screenWidth * 0.04),
               Row(
                 children: [
-                  Image.asset('assets/image/gopay-coins.png',
+                  Image.asset('assets//gopay-coins.png',
                       width: screenWidth * 0.1, height: screenWidth * 0.1),
                   SizedBox(width: screenWidth * 0.02),
                   const Expanded(
@@ -142,7 +140,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ListTile(
                 title: Row(
                   children: [
-                    Image.asset('assets/image/mandiri.png',
+                    Image.asset('assets//mandiri.png',
                         width: screenWidth * 0.12, height: screenWidth * 0.12),
                     SizedBox(width: screenWidth * 0.04),
                     const Expanded(
@@ -170,7 +168,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ListTile(
                 title: Row(
                   children: [
-                    Image.asset('assets/image/bca.png',
+                    Image.asset('assets//bca.png',
                         width: screenWidth * 0.12, height: screenWidth * 0.12),
                     SizedBox(width: screenWidth * 0.04),
                     const Expanded(
@@ -215,7 +213,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     children: [
                       Row(
                         children: [
-                          Image.asset('assets/image/gopay-tabungan.png',
+                          Image.asset('assets//gopay-tabungan.png',
                               width: screenWidth * 0.06,
                               height: screenWidth * 0.06),
                           SizedBox(width: screenWidth * 0.02),
@@ -366,7 +364,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         Colors.white,
                         BlendMode.srcIn,
                       ),
-                      child: Image.asset('assets/image/guard.png',
+                      child: Image.asset('assets//guard.png',
                           width: screenWidth * 0.04,
                           height: screenWidth * 0.04),
                     ),
