@@ -1,10 +1,8 @@
-// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:projectuas/screen/view/homescreen/homescreen_view.dart';
 import 'package:projectuas/screen/view/signin_dan_signup/sign_in.dart';
-import 'package:projectuas/screen/view/signin_dan_signup/text.dart';
 import 'package:projectuas/screen/view/widget/button.dart';
 import 'package:projectuas/screen/view/widget/textformfield.dart';
 import 'package:projectuas/screen/view_model/view_model_signup.dart';
@@ -130,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                                 .validate()) {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => const DummyScreen(),
+                                  builder: (context) => const HomescreenView(),
                                 ),
                               );
                               viewModel.setUlangGender();
