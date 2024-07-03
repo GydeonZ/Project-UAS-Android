@@ -10,11 +10,14 @@ class InboxScreen extends StatefulWidget {
 class _InboxScreenState extends State<InboxScreen> {
   @override
   Widget build(BuildContext context) {
+    // Get the screen size
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Row(
+        title: Row(
           children: [
             Text(
               'Inbox',
@@ -22,12 +25,14 @@ class _InboxScreenState extends State<InboxScreen> {
                 fontFamily: 'Helvetica',
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
+                fontSize: size.width * 0.05, // Responsive font size
               ),
             ),
           ],
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back,
+              color: Colors.black, size: size.width * 0.06),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -37,9 +42,9 @@ class _InboxScreenState extends State<InboxScreen> {
             children: [
               IconButton(
                 icon: Image.asset(
-                  'assets/image/bell.png',
-                  width: 30, // Adjust size as needed
-                  height: 30,
+                  'assets/bell.png',
+                  width: size.width * 0.07, // Responsive icon size
+                  height: size.width * 0.07,
                 ),
                 onPressed: () {
                   // Handle notification icon tap
@@ -54,15 +59,15 @@ class _InboxScreenState extends State<InboxScreen> {
                     color: Colors.red,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  constraints: const BoxConstraints(
-                    minWidth: 17,
-                    minHeight: 17,
+                  constraints: BoxConstraints(
+                    minWidth: size.width * 0.05, // Responsive constraints
+                    minHeight: size.width * 0.05,
                   ),
-                  child: const Text(
+                  child: Text(
                     '3',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 10,
+                      fontSize: size.width * 0.03, // Responsive text size
                       fontFamily: 'Helvetica',
                       fontWeight: FontWeight.bold,
                     ),
@@ -71,7 +76,7 @@ class _InboxScreenState extends State<InboxScreen> {
                 ),
               ),
             ],
-          )
+          ),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1.0),
@@ -85,16 +90,17 @@ class _InboxScreenState extends State<InboxScreen> {
         children: [
           ListTile(
             leading: Image.asset(
-              'assets/image/chat.png',
-              width: 24, // Adjust size as needed
-              height: 24,
+              'assets/chat.png',
+              width: size.width * 0.06, // Responsive icon size
+              height: size.width * 0.06,
             ),
-            title: const Text(
+            title: Text(
               'Chat Penjual',
               style: TextStyle(
                 fontFamily: 'Helvetica',
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
+                fontSize: size.width * 0.045, // Responsive text size
               ),
             ),
             trailing: Container(
@@ -103,15 +109,15 @@ class _InboxScreenState extends State<InboxScreen> {
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(12),
               ),
-              constraints: const BoxConstraints(
-                minWidth: 20,
-                minHeight: 17,
+              constraints: BoxConstraints(
+                minWidth: size.width * 0.05, // Responsive constraints
+                minHeight: size.width * 0.05,
               ),
-              child: const Text(
+              child: Text(
                 '5',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 12,
+                  fontSize: size.width * 0.03, // Responsive text size
                   fontFamily: 'Helvetica',
                   fontWeight: FontWeight.bold,
                 ),
@@ -122,36 +128,40 @@ class _InboxScreenState extends State<InboxScreen> {
               // Handle Chat Penjual tap
             },
           ),
+          Divider(height: size.height * 0.01), // Responsive divider height
           ListTile(
             leading: Image.asset(
-              'assets/image/discuss.png',
-              width: 24, // Adjust size as needed
-              height: 24,
+              'assets/discuss.png',
+              width: size.width * 0.06, // Responsive icon size
+              height: size.width * 0.06,
             ),
-            title: const Text(
+            title: Text(
               'Diskusi Produk',
               style: TextStyle(
                 fontFamily: 'Helvetica',
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
+                fontSize: size.width * 0.045, // Responsive text size
               ),
             ),
             onTap: () {
               // Handle Diskusi Produk tap
             },
           ),
+          Divider(height: size.height * 0.01), // Responsive divider height
           ListTile(
             leading: Image.asset(
-              'assets/image/star.png',
-              width: 24, // Adjust size as needed
-              height: 24,
+              'assets/star.png',
+              width: size.width * 0.06, // Responsive icon size
+              height: size.width * 0.06,
             ),
-            title: const Text(
+            title: Text(
               'Ulasan',
               style: TextStyle(
                 fontFamily: 'Helvetica',
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
+                fontSize: size.width * 0.045, // Responsive text size
               ),
             ),
             onTap: () {
