@@ -13,6 +13,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -37,7 +39,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Address Title
               const Text(
                 'Alamat pengiriman kamu',
                 style: TextStyle(
@@ -46,14 +47,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-
-              // Address Section
               Row(
                 children: [
                   Image.asset(
                     'assets/image/location.png',
-                    width: 24,
-                    height: 24,
+                    width: screenWidth * 0.06,
+                    height: screenWidth * 0.06,
                     color: Colors.green,
                   ),
                   const SizedBox(width: 8),
@@ -68,7 +67,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         ),
                       ),
                       Text(
-                        'Jl. Brigjend Katamso, Gg. Tetangga, No.4 (No 4), M...',
+                        'Jl. Brigjend Katamso, Gg. Tetangga, No.4',
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontFamily: 'Helvetica',
@@ -81,8 +80,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),
-
-              // Product Section
               const ProductItem(
                 imageUrl: 'assets/image/redmi-watch-gray.jpg',
                 title: 'Xiaomi Redmi Watch 3 Active GRAY',
@@ -95,10 +92,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 price: 457000,
                 protectionPrice: 13500,
               ),
-
               const SizedBox(height: 20),
-
-              // Bebas Ongkir Section
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
@@ -114,8 +108,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       children: [
                         Image.asset(
                           'assets/image/bebas-ongkir.png',
-                          width: 80,
-                          height: 50,
+                          width: screenWidth * 0.2,
+                          height: screenWidth * 0.125,
                         ),
                         const SizedBox(width: 12),
                         const Column(
@@ -154,8 +148,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       children: [
                         Image.asset(
                           'assets/image/proteksi.png',
-                          width: 20,
-                          height: 20,
+                          width: screenWidth * 0.05,
+                          height: screenWidth * 0.05,
                         ),
                         const SizedBox(width: 4),
                         Expanded(
@@ -175,10 +169,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 20),
-
-              // Ongkir Section
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
@@ -228,8 +219,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),
-
-              // Summary Section
               const Text(
                 'Cek ringkasan belanjamu, yuk',
                 style: TextStyle(
@@ -262,14 +251,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 label: 'Total Belanja',
                 value: 'Rp947.600',
               ),
-
               const SizedBox(height: 20),
-
-              // Donation Section
               Row(
                 children: [
                   Image.asset('assets/image/donation.png',
-                      width: 40, height: 40),
+                      width: screenWidth * 0.1, height: screenWidth * 0.1),
                   const SizedBox(width: 15),
                   const Expanded(
                     child: Text(
@@ -284,15 +270,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         donationChecked = value ?? false;
                       });
                     },
-                    activeColor:
-                        Colors.green, // Mengubah warna checkbox menjadi hijau
+                    activeColor: Colors.green,
                   ),
                 ],
               ),
-
               const SizedBox(height: 20),
-
-              // Payment Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -317,10 +299,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ),
                 ),
               ),
-
               const SizedBox(height: 15),
-
-              // Terms and Conditions
               const Center(
                 child: Text.rich(
                   TextSpan(
@@ -369,12 +348,14 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       children: [
         Row(
           children: [
             Image.asset(imageUrl,
-                width: 70, height: 70), // Memperbesar gambar produk
+                width: screenWidth * 0.175, height: screenWidth * 0.175),
             const SizedBox(width: 16),
             Expanded(
               child: Column(
@@ -398,8 +379,8 @@ class ProductItem extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/image/proteksi.png',
-                        width: 20,
-                        height: 20,
+                        width: screenWidth * 0.05,
+                        height: screenWidth * 0.05,
                       ),
                       const SizedBox(width: 4),
                       RichText(
