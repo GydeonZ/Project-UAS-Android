@@ -1,16 +1,50 @@
-# projectuas
+# Re design Tokopedia
 
-A new Flutter project.
+Selamat datang di repositori "Re design Tokopedia"! Proyek ini bertujuan untuk mendesain ulang antarmuka pengguna aplikasi Tokopedia dengan fokus pada peningkatan pengalaman pengguna (UX) dan antarmuka pengguna (UI) menggunakan Flutter.
 
-## Getting Started
+## Daftar Kontributor
 
-This project is a starting point for a Flutter application.
+- **Farhan Maulana** - 2144085
+- **Nikki Alesandro** - 2144038
+- **Theresia Mary** - 2144037
 
-A few resources to get you started if this is your first Flutter project:
+## Deskripsi Proyek
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Proyek ini melibatkan:
+- Penelitian dan analisis UX/UI saat ini di Tokopedia.
+- Pembuatan wireframes dan prototipe desain baru.
+- Implementasi desain baru menggunakan Flutter.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Fitur Utama
+
+- Desain antarmuka yang lebih intuitif dan user-friendly.
+- Peningkatan navigasi dan pencarian produk.
+- Optimalisasi tampilan pada berbagai perangkat (responsif).
+- Peningkatan kecepatan loading halaman.
+
+## Instalasi
+
+1. Clone repositori ini ke mesin lokal Anda:
+
+    ```bash
+    git clone https://github.com/username/re-design-tokopedia.git
+    ```
+
+2. Masuk ke direktori proyek:
+
+    ```bash
+    cd re-design-tokopedia
+    ```
+
+3. Install dependensi yang diperlukan:
+
+    ```bash
+    flutter pub get
+    ```
+
+## Penggunaan
+
+Untuk menjalankan proyek secara lokal, gunakan perintah berikut:
+
+```bash
+flutter run
